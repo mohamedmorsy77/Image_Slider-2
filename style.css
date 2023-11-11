@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  width: 50%;
+  margin: 10px auto;
+  position: relative;
+  height: 400px;
+}
+.container .slide-number {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  color: #fff;
+  font-size: 20px;
+  z-index: 2;
+}
+.container .images {
+  height: 100%;
+  width: 100%;
+}
+.container .images img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  object-fit: contain;
+}
+.container .images img.active {
+  opacity: 1;
+}
+.container .slide-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+.container .slide-control .previous,
+.container .slide-control .next {
+  color: #fff;
+  background-color: #009688;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  user-select: none;
+}
+.container .slide-control .previous.disabled,
+.container .slide-control .next.disabled {
+  background-color: #00968869;
+  pointer-events: none;
+}
+.container .slide-control .bullets ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+}
+.container .slide-control .bullets ul li {
+  cursor: pointer;
+  background-color: #f6f6f6;
+  color: #333;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .slide-control .bullets ul li.active {
+  background-color: #009688;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .slide-control {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .slide-number {
+    font-size: 15px !important;
+    padding: 10px;
+  }
+}
